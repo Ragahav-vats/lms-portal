@@ -32,7 +32,7 @@ export default function Header() {
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
 
                             {/* Dropdown Menu */}
-                            <div className="absolute left-0 mt-3 w-40 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">
+                            <div className="absolute left-0 mt-3 w-40 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 delay-1000">
 
                                 <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
                                     Dashboard
@@ -61,7 +61,7 @@ export default function Header() {
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
 
                             {/* Dropdown */}
-                            <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 delay-1000">
 
                                 <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
                                     Web Development
@@ -94,7 +94,7 @@ export default function Header() {
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
 
                             {/* Dropdown */}
-                            <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 delay-1000">
 
                                 <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
                                     Our Story
@@ -137,6 +137,9 @@ export default function Header() {
 
                     {/* Buttons */}
                     <div className="hidden md:flex items-center space-x-3">
+                         <button className="px-4 py-2 border border-gray-300 rounded-full text-white hover:bg-gray-100 hover:scale-105 transition bg-gradient-to-r from-blue-600 to-indigo-600">
+                            Enroll Now
+                        </button>
                         <button className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 hover:scale-105 transition">
                             Login
                         </button>
