@@ -38,11 +38,11 @@ export default function Header() {
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
 
                             {/* Dropdown Menu */}
-                            <div className="absolute left-0 mt-3 w-40 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 delay-1000">
+                            <div className="absolute left-0 mt-3 w-40 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 ">
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
+                                <Link to="/my-dashboard" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
                                     Dashboard
-                                </a>
+                                </Link>
 
                                 <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
                                     Overview
@@ -67,7 +67,7 @@ export default function Header() {
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
 
                             {/* Dropdown */}
-                            <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 delay-1000">
+                            <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 ">
 
                                 <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
                                     Web Development
@@ -100,7 +100,7 @@ export default function Header() {
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
 
                             {/* Dropdown */}
-                            <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 delay-1000">
+                            <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 ">
 
                                 <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
                                     Our Story

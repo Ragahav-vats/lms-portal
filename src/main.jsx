@@ -10,6 +10,7 @@ import Register from "./Components/Register";
 import Contact from "./Components/Contact";
 import Course from "./Components/Course";
 import About from "./Components/About";
+import Dashboard from "./SubComponents/Dashboard";
 
 
 const root = document.getElementById("root");
@@ -25,6 +26,8 @@ ReactDOM.createRoot(root).render(
         <Route path="/contact-us" element={<Contact/>} />
         <Route path="/courses" element={<Course/>} />
         <Route path="/about-us" element={<About/>} />
+        <Route path="/my-dashboard" element={<Dashboard/>} />
+
 
       </Route>
     </Routes>

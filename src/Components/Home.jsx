@@ -1,52 +1,81 @@
 import React from 'react'
+import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router';
+
 
 export default function Home() {
+
+  const navigate = useNavigate();
+  const slides = [
+    {
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+      title: "Fueling Skills, Igniting Careers",
+      highlight: "Careers",
+      desc: "Master industry-relevant skills and boost your growth."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+      title: "Learn From Industry Experts",
+      highlight: "Experts",
+      desc: "Get real-world knowledge from professionals."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+      title: "Upgrade Your Future Today",
+      highlight: "Future",
+      desc: "Start learning and achieve your career goals."
+    }
+  ];
+  const [current, setCurrent] = useState(0);
+
+  // Auto change slide
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 1000); // 1 sec
+
+    return () => clearInterval(interval);
+  }, []);
+
+   const learning = (event) => {
+      event.preventDefault();
+      navigate("/courses");
+   }
+
   return (
     <>
+      <section className="relative w-full h-[80vh] flex items-center justify-center text-center overflow-hidden">
 
+        {/* Background Image */}
+        <img
+          src={slides[current].image}
+          alt="slide"
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
+        />
 
-      <section className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 py-16">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/70"></div>
 
-        <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-10">
+        {/* Content */}
+        <div className="relative z-10 px-4 max-w-3xl">
+          <h1 className="text-white text-3xl md:text-5xl font-bold">
+            {slides[current].title.split(" ").map((word, i) =>
+              word === slides[current].highlight ? (
+                <span key={i} className="text-blue-500"> {word} </span>
+              ) : (
+                " " + word + " "
+              )
+            )}
+          </h1>
 
-          {/* Left Content */}
-          <div className="text-center md:text-left md:w-1/2">
+          <p className="text-gray-300 mt-4 text-sm md:text-lg">
+            {slides[current].desc}
+          </p>
 
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-800 leading-tight">
-              Upgrade Your Skills with{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                LearnHub
-              </span>
-            </h1>
-
-            <p className="mt-4 text-gray-600 text-sm md:text-lg leading-6">
-              Explore top-quality courses from industry experts and boost your career with practical learning.
-            </p>
-
-            {/* Buttons */}
-            <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 hover:scale-105 transition">
-                Get Started
-              </button>
-
-              <button className="px-6 py-3 border border-gray-300 rounded-full hover:bg-gray-100 hover:scale-105 transition">
-                Explore Courses
-              </button>
-            </div>
-
-          </div>
-
-          {/* Right Image */}
-          <div className="md:w-1/2 flex justify-center">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
-              alt="Learning"
-              className="w-72 md:w-96 drop-shadow-lg hover:scale-105 transition duration-300"
-            />
-          </div>
-
+          <button className="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 transition rounded-lg text-white font-semibold" onClick={learning}>
+            Start Learning
+          </button>
         </div>
-
       </section>
 
       <section className="bg-gray-50 py-16">
