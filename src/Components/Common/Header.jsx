@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -9,14 +10,19 @@ export default function Header() {
 
                     {/* Logo */}
                     <div className="flex items-center space-x-2 cursor-pointer">
+                        <Link to="/">
                         <img
                             src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
                             alt="LMS Logo"
                             className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
                         />
+                        </Link>
+                        <Link to="/">
                         <span className="text-lg font-semibold text-gray-800">
                             LearnHub
                         </span>
+                        </Link>
+                        
                     </div>
 
                     {/* Desktop Nav */}
@@ -24,9 +30,9 @@ export default function Header() {
                         <div className="relative group">
 
                             {/* Home Button */}
-                            <a href="#" className="hover:text-blue-600 transition">
+                            <Link to="/" className="hover:text-blue-600 transition">
                                 Home
-                            </a>
+                            </Link>
 
                             {/* Underline */}
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
@@ -53,9 +59,9 @@ export default function Header() {
                         <div className="relative group">
 
                             {/* Courses Button */}
-                            <a href="#" className="hover:text-blue-600 transition">
+                            <Link to="/courses" className="hover:text-blue-600 transition">
                                 Courses
-                            </a>
+                            </Link>
 
                             {/* Underline */}
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
@@ -86,9 +92,9 @@ export default function Header() {
                         <div className="relative group">
 
                             {/* About Button */}
-                            <a href="#" className="hover:text-blue-600 transition">
+                            <Link to="/about-us" className="hover:text-blue-600 transition">
                                 About
-                            </a>
+                            </Link>
 
                             {/* Underline */}
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
@@ -116,10 +122,10 @@ export default function Header() {
 
                         </div>
 
-                        <a href="#" className="relative group hover:text-blue-600 transition">
+                        <Link to="/contact-us" className="relative group hover:text-blue-600 transition">
                             Contact
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
-                        </a>
+                        </Link>
                     </nav>
 
                     {/* Search Box */}
@@ -137,16 +143,24 @@ export default function Header() {
 
                     {/* Buttons */}
                     <div className="hidden md:flex items-center space-x-3">
+                        <Link to="/enroll">
                          <button className="px-4 py-2 border border-gray-300 rounded-full text-white hover:bg-gray-100 hover:scale-105 transition bg-gradient-to-r from-blue-600 to-indigo-600">
                             Enroll Now
                         </button>
+                        </Link>
+
+                        <Link to="/login">
                         <button className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 hover:scale-105 transition">
                             Login
                         </button>
+                        </Link>
 
+                        <Link to="register">
                         <button className="px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:scale-105 hover:shadow-lg transition">
                             Register
                         </button>
+                        </Link>
+
                     </div>
 
                     {/* Mobile Button */}
