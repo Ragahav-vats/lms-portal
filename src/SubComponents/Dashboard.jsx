@@ -1,4 +1,7 @@
 import React from 'react'
+import { FaHome, FaBook, FaUserGraduate } from "react-icons/fa";
+import { MdExplore } from "react-icons/md";
+import { IoNotifications } from "react-icons/io5";
 
 export default function Dashboard() {
     return (
@@ -10,12 +13,23 @@ export default function Dashboard() {
 
                     {/* <!-- Sidebar --> */}
                     <div class="w-16 md:w-20 bg-white shadow-md min-h-screen flex flex-col items-center py-4 space-y-6">
-                        <div class="w-10 h-10 bg-blue-500 rounded-lg"></div>
-                        <div class="w-8 h-8 bg-gray-200 rounded"></div>
-                        <div class="w-8 h-8 bg-gray-200 rounded"></div>
-                        <div class="w-8 h-8 bg-gray-200 rounded"></div>
+                        <div class="w-10 h-10 bg-blue-500 rounded-lg">
+                            <FaHome size={30} />
+
+                        </div>
+                        <div class="w-8 h-8 bg-gray-200 rounded">
+                            <MdExplore size={30} />
+                        </div>
+                        <div class="w-8 h-8 bg-gray-200 rounded">
+                            <FaBook size={30} />
+
+                        </div>
+                        <div class="w-8 h-8 bg-gray-200 rounded">
+                            <IoNotifications size={30} />
+
+                        </div>
                     </div>
-                    
+
 
                     {/* <!-- Main Content --> */}
                     <div class="flex-1 p-4 md:p-8">

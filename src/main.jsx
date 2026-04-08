@@ -21,7 +21,6 @@ import Story from "./SubComponents/Story";
 import Team from "./SubComponents/Team";
 import Careers from "./SubComponents/Careers";
 
-
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
@@ -45,7 +44,6 @@ ReactDOM.createRoot(root).render(
         <Route path="/our-story" element={<Story/>} />
         <Route path="/team" element={<Team/>} />
         <Route path="/careers" element={<Careers/>} />
-
 
       </Route>
     </Routes>
