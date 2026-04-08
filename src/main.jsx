@@ -11,6 +11,15 @@ import Contact from "./Components/Contact";
 import Course from "./Components/Course";
 import About from "./Components/About";
 import Dashboard from "./SubComponents/Dashboard";
+import OverView from "./SubComponents/OverView";
+import Update from "./SubComponents/Update";
+import App from "./SubComponents/App";
+import Web from "./SubComponents/Web";
+import Data from "./SubComponents/Data";
+import Ai from "./SubComponents/Ai";
+import Story from "./SubComponents/Story";
+import Team from "./SubComponents/Team";
+import Careers from "./SubComponents/Careers";
 
 
 const root = document.getElementById("root");
@@ -27,6 +36,15 @@ ReactDOM.createRoot(root).render(
         <Route path="/courses" element={<Course/>} />
         <Route path="/about-us" element={<About/>} />
         <Route path="/my-dashboard" element={<Dashboard/>} />
+        <Route path="/overview" element={<OverView/>} />
+        <Route path="/updates" element={<Update/>} />
+        <Route path="/app-development" element={<App/>} />
+        <Route path="/web-development" element={<Web/>} />
+        <Route path="/data-science" element={<Data/>} />
+        <Route path="/ai-ml" element={<Ai/>} />
+        <Route path="/our-story" element={<Story/>} />
+        <Route path="/team" element={<Team/>} />
+        <Route path="/careers" element={<Careers/>} />
 
 
       </Route>

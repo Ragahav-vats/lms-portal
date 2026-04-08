@@ -44,13 +44,13 @@ export default function Header() {
                                     Dashboard
                                 </Link>
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+                                <Link to="/overview" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
                                     Overview
-                                </a>
+                                </Link>
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg">
+                                <Link to="/updates" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg">
                                     Updates
-                                </a>
+                                </Link>
 
                             </div>
 
@@ -69,21 +69,21 @@ export default function Header() {
                             {/* Dropdown */}
                             <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 ">
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
+                                <Link to="/web-development" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
                                     Web Development
-                                </a>
+                                </Link>
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+                                <Link to="/app-development" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
                                     App Development
-                                </a>
+                                </Link>
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+                                <Link to="/data-science" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
                                     Data Science
-                                </a>
+                                </Link>
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg">
+                                <Link to="/ai-ml" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg">
                                     AI & ML
-                                </a>
+                                </Link>
 
                             </div>
 
@@ -102,21 +102,21 @@ export default function Header() {
                             {/* Dropdown */}
                             <div className="absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 ">
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
+                                <Link to="/our-story" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">
                                     Our Story
-                                </a>
+                                </Link>
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+                                <Link to="/team" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
                                     Team
-                                </a>
+                                </Link>
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+                                <Link to="/careers" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
                                     Careers
-                                </a>
+                                </Link>
 
-                                <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg">
+                                {/* <a href="#" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg">
                                     Contact Info
-                                </a>
+                                </a> */}
 
                             </div>
 
