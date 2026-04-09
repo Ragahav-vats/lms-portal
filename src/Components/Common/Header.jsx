@@ -3,7 +3,8 @@ import { Link } from 'react-router';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
+
     return (
         <>
             <header className="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50">
@@ -13,7 +14,7 @@ export default function Header() {
                     <div className="flex items-center space-x-2 cursor-pointer">
                         <Link to="/">
                             <img
-                                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                                src="https://as1.ftcdn.net/jpg/17/68/82/14/1000_F_1768821478_48E3LHkDCCYVg91P6TwgIxsBE1ZQPk3v.jpg"
                                 alt="LMS Logo"
                                 className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
                             />
@@ -144,7 +145,7 @@ export default function Header() {
                     </div>
 
                     {/* Buttons */}
-                    <div className="hidden md:flex items-center space-x-3">
+                    <div className="hidden md:flex items-center space-x-5">
                         <Link to="/enroll">
                             <button className="px-4 py-2 border border-gray-300 rounded-full text-white hover:bg-gray-100 hover:scale-105 transition bg-gradient-to-r from-blue-600 to-indigo-600">
                                 Enroll Now
@@ -156,13 +157,13 @@ export default function Header() {
                                 Login
                             </button>
                         </Link>
-                            <button className="px-5 py-3">
-                                 <img
+                        {/* <button className="px-5 py-3">
+                            <img
                                 src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
                                 alt="LMS Logo"
                                 className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
                             />
-                            </button>
+                        </button> */}
 
                     </div>
 
@@ -218,16 +219,17 @@ export default function Header() {
                                 Login
                             </button>
 
-                            <button className="w-full py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+                            {/* <button className="w-full py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
                                 <img
-                                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                                alt="LMS Logo"
-                                className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
-                            />
-                            </button>
+                                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                                    alt="LMS Logo"
+                                    className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
+                                />
+                            </button> */}
                         </nav>
                     </div>
                 )}
+            
             </header>
         </>
     )

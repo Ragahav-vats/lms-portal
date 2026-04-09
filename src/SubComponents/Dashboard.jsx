@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaHome, FaBook, FaUserGraduate } from "react-icons/fa";
 import { MdExplore } from "react-icons/md";
 import { IoNotifications } from "react-icons/io5";
 
 export default function Dashboard() {
+    const [openSide, setOpenSide] = useState(false);
     return (
         <>
             <section class="bg-gray-100 font-sans">
@@ -15,19 +16,21 @@ export default function Dashboard() {
                     <div class="w-16 md:w-20 bg-white shadow-md min-h-screen flex flex-col items-center py-4 space-y-6">
                         <div class="text-blue-500">
                             <FaHome size={25} />
+                        </div>
+
+                        <div class="text-2xl text-blue-500" onClick={() => setOpenSide(true)}>
+                            {/* <IoNotifications size={30} /> */}
+                            <i class="fa-solid fa-circle-user" size={30} />
 
                         </div>
-                        <div class="text-white-500">
-                            <MdExplore size={25} />
-                        </div>
+
                         <div class="text-white-500">
                             <FaBook size={25} />
 
                         </div>
-                        <div class="text-2xl text-white-500">
-                            {/* <IoNotifications size={30} /> */}
-                            <i class="fa-solid fa-circle-user" size={30}/>
 
+                        <div class="text-white-500">
+                            <MdExplore size={25} />
                         </div>
                     </div>
 
@@ -102,6 +105,54 @@ export default function Dashboard() {
                 </div>
 
             </section>
+            {openSide && (
+                <div
+                    className="fixed inset-0 bg-black/30"
+                    onClick={() => setOpenSide(false)}
+                />
+            )}
+            {/* Sidebar */}
+            <div className={`fixed top-0 right-0 h-auto max-h-[95vh] my-5 w-80 bg-white z-50 shadow-2xl 
+                transform transition-transform duration-300
+                ${openSide ? "translate-x-0" : "translate-x-full"}`}>
+
+                <div className="p-5">
+
+                    {/* Close Button */}
+                    <button
+                        className="mb-4 text-gray-500"
+                        onClick={() => setOpenSide(false)}
+                    >
+                        ✖
+                    </button>
+
+                    <h2 className="text-xl font-bold mb-4">Profile</h2>
+
+                    {/* Form */}
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        className="w-full mb-3 p-2 border rounded"
+                    />
+
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        className="w-full mb-3 p-2 border rounded"
+                    />
+
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        className="w-full mb-4 p-2 border rounded"
+                    />
+
+                    <button className="w-full bg-blue-500 text-white py-2 rounded">
+                        Save
+                    </button>
+
+                </div>
+            </div>
 
         </>
     )
