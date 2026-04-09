@@ -13,19 +13,20 @@ export default function Dashboard() {
 
                     {/* <!-- Sidebar --> */}
                     <div class="w-16 md:w-20 bg-white shadow-md min-h-screen flex flex-col items-center py-4 space-y-6">
-                        <div class="w-10 h-10 bg-blue-500 rounded-lg">
-                            <FaHome size={30} />
+                        <div class="text-blue-500">
+                            <FaHome size={25} />
 
                         </div>
-                        <div class="w-8 h-8 bg-gray-200 rounded">
-                            <MdExplore size={30} />
+                        <div class="text-white-500">
+                            <MdExplore size={25} />
                         </div>
-                        <div class="w-8 h-8 bg-gray-200 rounded">
-                            <FaBook size={30} />
+                        <div class="text-white-500">
+                            <FaBook size={25} />
 
                         </div>
-                        <div class="w-8 h-8 bg-gray-200 rounded">
-                            <IoNotifications size={30} />
+                        <div class="text-2xl text-white-500">
+                            {/* <IoNotifications size={30} /> */}
+                            <i class="fa-solid fa-circle-user" size={30}/>
 
                         </div>
                     </div>
@@ -47,7 +48,7 @@ export default function Dashboard() {
                         <input
                             type="text"
                             placeholder="Search for a chapter, course or package"
-                            class="w-full mb-6 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            class="w-1/4 mb-6 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         />
 
                         {/* <!-- Cards --> */}
@@ -61,8 +62,8 @@ export default function Dashboard() {
                                     <p class="text-sm text-gray-500 mt-1">WsCube Tech Team</p>
 
                                     <div class="mt-4 text-sm text-gray-600">
-                                        <p>Start Now</p>
-                                        <p class="text-gray-400">Valid Till: Jun 30, 2026</p>
+                                        <p class="text-blue-500">Start Now</p>
+                                        <p class="text-black-600">Valid Till: Jun 30, 2026</p>
                                     </div>
                                 </div>
                             </div>
@@ -75,8 +76,8 @@ export default function Dashboard() {
                                     <p class="text-sm text-gray-500 mt-1">Expert Team</p>
 
                                     <div class="mt-4 text-sm text-gray-600">
-                                        <p>Start Now</p>
-                                        <p class="text-gray-400">Valid Till: Lifetime</p>
+                                        <p class="text-blue-500">Start Now</p>
+                                        <p class="text-black-600">Valid Till: Lifetime</p>
                                     </div>
                                 </div>
                             </div>
@@ -89,8 +90,8 @@ export default function Dashboard() {
                                     <p class="text-sm text-gray-500 mt-1">Vikash Sir</p>
 
                                     <div class="mt-4 text-sm text-gray-600">
-                                        <p>Start Now</p>
-                                        <p class="text-gray-400">Valid Till: Lifetime</p>
+                                        <p class="text-blue-500">Start Now</p>
+                                        <p class="text-black-600">Valid Till: Lifetime</p>
                                     </div>
                                 </div>
                             </div>

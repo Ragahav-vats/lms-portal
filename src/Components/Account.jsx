@@ -1,16 +1,15 @@
 import React from 'react'
 
-export default function Register() {
-    return (
+export default function Account() {
+  return (
     <>
-            {/* <!-- REGISTER SECTION START --> */}
-            <section class="w-full py-16 px-4 flex justify-center items-center bg-gray-50">
+       <section class="w-full py-16 px-4 flex justify-center items-center bg-gray-50">
 
                 <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
 
                     {/* <!-- Heading --> */}
                     <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
-                        Create Your Account 🚀
+                        Create Your Account 
                     </h2>
 
                     {/* <!-- Form --> */}
@@ -80,7 +79,6 @@ export default function Register() {
                         </div>
 
                     </section>
-                    {/* <!-- REGISTER SECTION END --> */}
-                </>
-                )
+    </>
+  )
 }

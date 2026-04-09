@@ -6,7 +6,6 @@ import Home from "./Components/Home";
 import "./assets/css/style.css";
 import Enroll from "./Components/Enroll";
 import Login from "./Components/Login";
-import Register from "./Components/Register";
 import Contact from "./Components/Contact";
 import Course from "./Components/Course";
 import About from "./Components/About";
@@ -20,6 +19,7 @@ import Ai from "./SubComponents/Ai";
 import Story from "./SubComponents/Story";
 import Team from "./SubComponents/Team";
 import Careers from "./SubComponents/Careers";
+import Account from "./Components/Account";
 
 const root = document.getElementById("root");
 
@@ -30,7 +30,7 @@ ReactDOM.createRoot(root).render(
         <Route path="/" element={<Home/>} />
         <Route path="/enroll" element={<Enroll/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Register/>} />
+        <Route path="/create-account" element={<Account/>} />
         <Route path="/contact-us" element={<Contact/>} />
         <Route path="/courses" element={<Course/>} />
         <Route path="/about-us" element={<About/>} />

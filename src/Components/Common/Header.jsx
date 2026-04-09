@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [open, setOpen] = useState(false);
     return (
         <>
             <header className="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50">
@@ -11,18 +12,19 @@ export default function Header() {
                     {/* Logo */}
                     <div className="flex items-center space-x-2 cursor-pointer">
                         <Link to="/">
-                        <img
-                            src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
-                            alt="LMS Logo"
-                            className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
-                        />
+                            <img
+                                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                                alt="LMS Logo"
+                                className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
+                            />
                         </Link>
+
                         <Link to="/">
-                        <span className="text-lg font-semibold text-gray-800">
-                            LearnHub
-                        </span>
+                            <span className="text-lg font-semibold text-gray-800">
+                                LearnHub
+                            </span>
                         </Link>
-                        
+
                     </div>
 
                     {/* Desktop Nav */}
@@ -144,22 +146,23 @@ export default function Header() {
                     {/* Buttons */}
                     <div className="hidden md:flex items-center space-x-3">
                         <Link to="/enroll">
-                         <button className="px-4 py-2 border border-gray-300 rounded-full text-white hover:bg-gray-100 hover:scale-105 transition bg-gradient-to-r from-blue-600 to-indigo-600">
-                            Enroll Now
-                        </button>
+                            <button className="px-4 py-2 border border-gray-300 rounded-full text-white hover:bg-gray-100 hover:scale-105 transition bg-gradient-to-r from-blue-600 to-indigo-600">
+                                Enroll Now
+                            </button>
                         </Link>
 
                         <Link to="/login">
-                        <button className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 hover:scale-105 transition">
-                            Login
-                        </button>
+                            <button className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 hover:scale-105 transition">
+                                Login
+                            </button>
                         </Link>
-
-                        <Link to="register">
-                        <button className="px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:scale-105 hover:shadow-lg transition">
-                            Register
-                        </button>
-                        </Link>
+                            <button className="px-5 py-3">
+                                 <img
+                                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                                alt="LMS Logo"
+                                className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
+                            />
+                            </button>
 
                     </div>
 
@@ -216,7 +219,11 @@ export default function Header() {
                             </button>
 
                             <button className="w-full py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-                                Register
+                                <img
+                                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                                alt="LMS Logo"
+                                className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
+                            />
                             </button>
                         </nav>
                     </div>
