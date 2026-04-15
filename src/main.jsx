@@ -20,6 +20,8 @@ import Story from "./SubComponents/Story";
 import Team from "./SubComponents/Team";
 import Careers from "./SubComponents/Careers";
 import Account from "./Components/Account";
+import Forgot from "./Components/forgot";
+import Reset from "./Components/Reset";
 
 const root = document.getElementById("root");
 
@@ -35,6 +37,8 @@ ReactDOM.createRoot(root).render(
         <Route path="/courses" element={<Course/>} />
         <Route path="/about-us" element={<About/>} />
         <Route path="/my-dashboard" element={<Dashboard/>} />
+        <Route path="/forgot-password" element={<Forgot/>} />
+        <Route path="/reset-password" element={<Reset/>} />
         <Route path="/overview" element={<OverView/>} />
         <Route path="/updates" element={<Update/>} />
         <Route path="/app-development" element={<App/>} />

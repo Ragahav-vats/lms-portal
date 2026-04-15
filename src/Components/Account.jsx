@@ -1,6 +1,39 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
+import Cookies from 'js-cookie';
 
 export default function Account() {
+
+    const [registerButton, setRegisterButton] = useState(false);
+    const navigate = useNavigate();
+
+    const registerHandler = (event) => {
+        event.preventDefault();
+        setRegisterButton(true);
+
+        const formData = new FormData(event.target);
+        console.log(formData);
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/register`,formData)
+        .then((result) => {
+            setRegisterButton(false);
+
+            if(result.data._status == true) {
+                event.target.reset();
+                toast.success(result.data._message);
+                Cookies.set('token',result.data._token);
+                navigate("/login");
+            } else {
+                toast.error(result.data._message);
+            }
+        })
+        .catch(() => {
+            setRegisterButton(false);
+            toast.error('Something went wrong !!');
+        })
+    }
+
   return (
     <>
        <section class="w-full py-16 px-4 flex justify-center items-center bg-gray-50">
@@ -13,33 +46,36 @@ export default function Account() {
                     </h2>
 
                     {/* <!-- Form --> */}
-                    <form class="space-y-5">
+                    <form class="space-y-5" onSubmit={registerHandler} autoComplete='off'>
 
                         {/* <!-- Name --> */}
                         <div>
-                            <label class="block text-gray-600 mb-1">Full Name</label>
-                            <input type="text" placeholder="Enter your name"
+                            <label class="block text-gray-600 mb-1">Full Name <span>*</span></label>
+                            <input type="text" 
+                              name='name'
+                            placeholder="Enter your name"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"/>
                         </div>
 
                         {/* <!-- Email --> */}
                         <div>
-                            <label class="block text-gray-600 mb-1">Email</label>
-                            <input type="email" placeholder="Enter your email"
+                            <label class="block text-gray-600 mb-1">Email <span>*</span></label>
+                            <input type="email" placeholder="Enter your email" name='email'
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"/>
                         </div>
 
                         {/* <!-- Password --> */}
                         <div>
-                            <label class="block text-gray-600 mb-1">Password</label>
+                            <label class="block text-gray-600 mb-1">Password <span>*</span></label>
                             <input type="password" placeholder="Create password"
+                            name='password'
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"/>
                         </div>
 
                         {/* <!-- Confirm Password --> */}
                         <div>
-                            <label class="block text-gray-600 mb-1">Confirm Password</label>
-                            <input type="password" placeholder="Confirm password"
+                            <label class="block text-gray-600 mb-1">Confirm Password <span>*</span></label>
+                            <input type="password" placeholder="Confirm password" name='confirm password'
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"/>
                         </div>
 
@@ -50,8 +86,8 @@ export default function Account() {
                         </div>
 
                         {/* <!-- Button --> */}
-                        <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold">
-                            Sign Up
+                        <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold" disabled={registerButton ? 'disabled' : ''}>
+                            {registerButton ? 'Loading...' : ' Sign Up'}
                         </button>
 
                         {/* <!-- Divider --> */}
@@ -71,7 +107,7 @@ export default function Account() {
                                 {/* <!-- Login Link --> */}
                                 <p class="text-center text-sm text-gray-500">
                                     Already have an account?
-                                    <a href="#" class="text-indigo-600 font-semibold hover:underline">Login</a>
+                                    <Link to="/login" class="text-indigo-600 font-semibold hover:underline">Login</Link>
                                 </p>
 
                             </form>

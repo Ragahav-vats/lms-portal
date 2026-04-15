@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router';
+import { ToastContainer } from 'react-toastify';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -7,6 +8,7 @@ export default function Header() {
 
     return (
         <>
+        <ToastContainer/>
             <header className="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
 
