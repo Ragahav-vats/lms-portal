@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-
+import Cookies from 'js-cookie';
 export default function Enroll() {
     return (
         <>
@@ -51,7 +51,7 @@ export default function Enroll() {
                                 <li>✔ Basic Support</li>
                                 <li>✔ Lifetime Access</li>
                             </ul>
-                             <Link to="/payment">
+                             <Link to={`${Cookies.get('token') ? "/payment" : "/login" }`}>
                             <button class="bg-purple-600 text-white px-4 py-2 rounded-lg w-full">
                                 Enroll Now
                             </button>
