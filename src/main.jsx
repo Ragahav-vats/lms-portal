@@ -22,6 +22,7 @@ import Careers from "./SubComponents/Careers";
 import Account from "./Components/Account";
 import Forgot from "./Components/forgot";
 import Reset from "./Components/Reset";
+import Payment from "./Components/Payment";
 
 const root = document.getElementById("root");
 
@@ -48,6 +49,7 @@ ReactDOM.createRoot(root).render(
         <Route path="/our-story" element={<Story/>} />
         <Route path="/team" element={<Team/>} />
         <Route path="/careers" element={<Careers/>} />
+        <Route path="/payment" element={<Payment/>} />
 
       </Route>
     </Routes>

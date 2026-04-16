@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 export default function Enroll() {
     return (
@@ -50,9 +51,11 @@ export default function Enroll() {
                                 <li>✔ Basic Support</li>
                                 <li>✔ Lifetime Access</li>
                             </ul>
-                            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg w-full">
+                             <Link to="/payment">
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-lg w-full">
                                 Enroll Now
                             </button>
+                            </Link>
                         </div>
 
                         <div class="bg-white text-gray-800 rounded-2xl p-6 shadow-lg scale-105 border-2 border-yellow-400">
@@ -65,9 +68,11 @@ export default function Enroll() {
                                 <li>✔ Live Classes</li>
                                 <li>✔ Priority Support</li>
                             </ul>
+                            <Link to="/payment">
                             <button class="bg-purple-600 text-white px-4 py-2 rounded-lg w-full">
                                 Enroll Now
                             </button>
+                            </Link>
                         </div>
 
                         <div class="bg-white text-gray-800 rounded-2xl p-6 shadow hover:scale-105 transition">
@@ -79,9 +84,11 @@ export default function Enroll() {
                                 <li>✔ Career Guidance</li>
                                 <li>✔ All Features</li>
                             </ul>
-                            <button class="bg-pink-600 text-white px-4 py-2 rounded-lg w-full">
+                             <Link to="/payment">
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-lg w-full">
                                 Enroll Now
                             </button>
+                            </Link>
                         </div>
 
                     </div>
@@ -137,9 +144,11 @@ export default function Enroll() {
                     <div class="text-center">
                         <h3 class="text-3xl font-bold mb-4">Ready to Start? 🚀</h3>
                         <p class="mb-6 text-gray-200">Join now and transform your career</p>
+                        <Link to="/payment">
                         <button class="bg-white text-indigo-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-200">
                             Enroll Now
                         </button>
+                        </Link>
                     </div>
 
                 </div>
