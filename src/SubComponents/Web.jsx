@@ -12,8 +12,8 @@ export default function Web() {
             author: "John Doe",
             duration: "8 hrs",
             rating: "4.7",
-            price : "Rs 499",
-            image : " https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+            price: "Rs 499",
+            image: " https://images.unsplash.com/photo-1498050108023-c5249f4df085"
         },
         {
             title: "JavaScript Mastery",
@@ -21,8 +21,8 @@ export default function Web() {
             author: "Aman Verma",
             duration: "12 hrs",
             rating: "4.8",
-            price : "Rs 799",
-            image : "https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+            price: "Rs 799",
+            image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c"
         },
         {
             title: "React JS Complete Guide",
@@ -30,8 +30,8 @@ export default function Web() {
             author: "Neha Singh",
             duration: "15 hrs",
             rating: "4.9",
-            price : "Rs 999",
-            image : "https://images.unsplash.com/photo-1617042375876-a13e36732a04"
+            price: "Rs 999",
+            image: "https://images.unsplash.com/photo-1617042375876-a13e36732a04"
         },
         {
             title: "Node.js & Express",
@@ -39,8 +39,8 @@ export default function Web() {
             author: " Priya Gupta",
             duration: "10 hrs",
             rating: "4.7",
-            price : "Rs 1199",
-            image : "https://images.unsplash.com/photo-1504639725590-34d0984388bd"
+            price: "Rs 1199",
+            image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd"
         },
         {
             title: "MERN Stack Development",
@@ -48,8 +48,8 @@ export default function Web() {
             author: "Rahul Sharma",
             duration: "20 hrs",
             rating: "4.8",
-            price : "Rs 1299",
-            image : "https://images.unsplash.com/photo-1605379399642-870262d3d051"
+            price: "Rs 1299",
+            image: "https://images.unsplash.com/photo-1605379399642-870262d3d051"
         }
     ];
 
