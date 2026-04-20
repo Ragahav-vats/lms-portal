@@ -5,7 +5,8 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 
 export default function Login() {
-   const [loginButton, setloginButton] = useState(false);
+    const [loginButton, setloginButton] = useState(false);
+    const token = Cookies.get("token");
     const navigate = useNavigate();
 
     const loginHandler = (event) => {
@@ -14,23 +15,23 @@ export default function Login() {
 
         const formData = new FormData(event.target);
         console.log(formData);
-        axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/login`,formData)
-        .then((result) => {
-            setloginButton(false);
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/login`, formData)
+            .then((result) => {
+                setloginButton(false);
 
-            if(result.data._status == true) {
-                event.target.reset();
-                toast.success(result.data._message);
-                Cookies.set('token',result.data._token);
-                navigate("/");
-            } else {
-                toast.error(result.data._message);
-            }
-        })
-        .catch(() => {
-            setloginButton(false);
-            toast.error('Something went wrong !!');
-        })
+                if (result.data._status == true) {
+                    event.target.reset();
+                    toast.success(result.data._message);
+                    Cookies.set('token', result.data._token);
+                    navigate("/");
+                } else {
+                    toast.error(result.data._message);
+                }
+            })
+            .catch(() => {
+                setloginButton(false);
+                toast.error('Something went wrong !!');
+            })
     }
     return (
         <>
@@ -51,7 +52,7 @@ export default function Login() {
                         <div>
                             <label class="block text-gray-600 mb-1">Email <span>*</span></label>
                             <input type="email" placeholder="Enter your email"
-                            name='email'
+                                name='email'
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" />
                         </div>
 
@@ -59,14 +60,14 @@ export default function Login() {
                         <div>
                             <label class="block text-gray-600 mb-1">Password <span>*</span></label>
                             <input type="password" placeholder="Enter your password"
-                            name='password'
+                                name='password'
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" />
                         </div>
 
                         {/* <!-- Remember + Forgot --> */}
                         <div class="flex justify-between items-center text-sm">
                             <label class="flex items-center space-x-2">
-                               
+
                                 <h5>or</h5>
                                 <Link to="/create-account">
                                     <span class="text-pink-900">Create an account</span>
@@ -76,9 +77,29 @@ export default function Login() {
                         </div>
 
                         {/* <!-- Button --> */}
-                        <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold" disabled={loginButton ? 'disabled' : ''}>
+
+                        {
+                            token ? (
+                                <button
+                                    onClick={() => {
+                                        Cookies.remove("token");
+                                        toast.success("Logout Successfully");
+                                        navigate("/login");
+                                    }}
+                                    class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold">
+                                    Logout
+                                </button>
+                            )
+                                :
+                                (
+                                    <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold" disabled={loginButton ? 'disabled' : ''}>
+                                        {loginButton ? 'Loading...' : ' Login'}
+                                    </button>
+                                )
+                        }
+                        {/* <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold" disabled={loginButton ? 'disabled' : ''}>
                             {loginButton ? 'Loading...' : ' Login'}
-                        </button>
+                        </button> */}
 
                         {/* <!-- Divider --> */}
                         <div class="flex items-center my-4">
