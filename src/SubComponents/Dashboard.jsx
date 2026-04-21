@@ -2,9 +2,25 @@ import React, { useState } from 'react'
 import { FaHome, FaBook, FaUserGraduate } from "react-icons/fa";
 import { MdExplore } from "react-icons/md";
 import { IoNotifications } from "react-icons/io5";
+import { toast } from 'react-toastify';
 
 export default function Dashboard() {
     const [openSide, setOpenSide] = useState(false);
+
+    const handler = (event) => {
+        event.preventDefault();
+        const name = event.target[0].value;
+        const email = event.target[1].value;
+        const password = event.target[2].value;
+
+        // cookie me save
+        document.cookie = `name=${name}`;
+        document.cookie = `email=${email}`;
+        document.cookie = `password=${password}`;
+        toast.success('Profile Complete !');
+        event.target.reset();
+    }
+
     return (
         <>
             <section class="bg-gray-100 font-sans">
@@ -128,28 +144,33 @@ export default function Dashboard() {
 
                     <h2 className="text-xl font-bold mb-4">Profile</h2>
 
-                    {/* Form */}
-                    <input
-                        type="text"
-                        placeholder="Name"
-                        className="w-full mb-3 p-2 border rounded"
-                    />
+                    <form onSubmit={handler}>
+                        {/* Form */}
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            name='name'
+                            className="w-full mb-3 p-2 border rounded"
+                        />
 
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        className="w-full mb-3 p-2 border rounded"
-                    />
+                        <input
+                            type="email"
+                            name='email'
+                            placeholder="Email"
+                            className="w-full mb-3 p-2 border rounded"
+                        />
 
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        className="w-full mb-4 p-2 border rounded"
-                    />
+                        <input
+                            type="password"
+                            name='password'
+                            placeholder="Password"
+                            className="w-full mb-4 p-2 border rounded"
+                        />
 
-                    <button className="w-full bg-blue-500 text-white py-2 rounded">
-                        Save
-                    </button>
+                        <button className="w-full bg-blue-500 text-white py-2 rounded">
+                            Save
+                        </button>
+                    </form>
 
                 </div>
             </div>

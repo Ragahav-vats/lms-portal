@@ -3,10 +3,13 @@ import { Link, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 import axios from 'axios';
+import app from '../firebase/config';
+// import { getDatabase, ref, set } from "firebase/database";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export default function Login() {
     const [loginButton, setloginButton] = useState(false);
-    const token = Cookies.get("token");
+    let [token, setToken] = useState(Cookies.get("token") || null);
     const navigate = useNavigate();
 
     const loginHandler = (event) => {
@@ -18,6 +21,8 @@ export default function Login() {
         axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/login`, formData)
             .then((result) => {
                 setloginButton(false);
+                Cookies.set("token", token);
+                setToken(token)
 
                 if (result.data._status == true) {
                     event.target.reset();
@@ -25,14 +30,33 @@ export default function Login() {
                     Cookies.set('token', result.data._token);
                     navigate("/");
                 } else {
-                    toast.error(result.data._message);
+                    if (result.data._registerstatus){
+                        toast.error("account doesn't exist please register first")
+                        navigate("/create-account")
+                    }
                 }
             })
-            .catch(() => {
+            .catch((err) => {
                 setloginButton(false);
                 toast.error('Something went wrong !!');
             })
     }
+
+     const googleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth(app);
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success('Login suceessfully !!');
+        navigate("/");
+      }).catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  }
+
     return (
         <>
             {/* <!-- LOGIN SECTION START --> */}
@@ -77,29 +101,10 @@ export default function Login() {
                         </div>
 
                         {/* <!-- Button --> */}
-
-                        {
-                            token ? (
-                                <button
-                                    onClick={() => {
-                                        Cookies.remove("token");
-                                        toast.success("Logout Successfully");
-                                        navigate("/login");
-                                    }}
-                                    class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold">
-                                    Logout
-                                </button>
-                            )
-                                :
-                                (
-                                    <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold" disabled={loginButton ? 'disabled' : ''}>
-                                        {loginButton ? 'Loading...' : ' Login'}
-                                    </button>
-                                )
-                        }
-                        {/* <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold" disabled={loginButton ? 'disabled' : ''}>
+                       
+                        <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition font-semibold" disabled={loginButton ? 'disabled' : ''}>
                             {loginButton ? 'Loading...' : ' Login'}
-                        </button> */}
+                        </button>
 
                         {/* <!-- Divider --> */}
                         <div class="flex items-center my-4">
@@ -110,6 +115,7 @@ export default function Login() {
 
                         {/* <!-- Google --> */}
                         <button type="button"
+                           onClick={googleLogin}
                             class="w-full flex items-center justify-center gap-2 border py-2 rounded-lg hover:bg-gray-100 transition">
                             <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" class="w-5 h-5" />
                             Login with Google

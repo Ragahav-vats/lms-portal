@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router';
-import { ToastContainer } from 'react-toastify';
+import { Link, useNavigate } from 'react-router';
+import { toast, ToastContainer } from 'react-toastify';
+import Cookies from 'js-cookie';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
-    // const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
+
+    let [token, setToken] = useState(Cookies.get("token") || null);
+
+    console.log("token => ", token)
 
     return (
         <>
-        <ToastContainer/>
+            <ToastContainer />
             <header className="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
 
@@ -35,7 +40,7 @@ export default function Header() {
                         <div className="relative group">
 
                             {/* Home Button */}
-                            <Link to="/" className="hover:text-blue-600 transition">
+                            <Link to="/" className="hover:text-blue-600 transition" onClick={() => setIsOpen(false)}>
                                 Home
                             </Link>
 
@@ -64,7 +69,9 @@ export default function Header() {
                         <div className="relative group">
 
                             {/* Courses Button */}
-                            <Link to="/courses" className="hover:text-blue-600 transition">
+                            <Link to="/courses"
+                                onClick={() => setIsOpen(false)}
+                                className="hover:text-blue-600 transition">
                                 Courses
                             </Link>
 
@@ -97,7 +104,7 @@ export default function Header() {
                         <div className="relative group">
 
                             {/* About Button */}
-                            <Link to="/about-us" className="hover:text-blue-600 transition">
+                            <Link to="/about-us" className="hover:text-blue-600 transition" onClick={() => setIsOpen(false)}>
                                 About
                             </Link>
 
@@ -127,7 +134,7 @@ export default function Header() {
 
                         </div>
 
-                        <Link to="/contact-us" className="relative group hover:text-blue-600 transition">
+                        <Link to="/contact-us" className="relative group hover:text-blue-600 transition" onClick={() => setIsOpen(false)}>
                             Contact
                             <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
                         </Link>
@@ -154,18 +161,35 @@ export default function Header() {
                             </button>
                         </Link>
 
-                        <Link to="/login">
+                        {
+                            token ? (
+
+                                <button
+                                    onClick={() => {
+                                        Cookies.remove("token");
+                                        toast.success("Logout Successfully");
+                                        navigate("/login");
+                                    }}
+                                    className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 hover:scale-105 transition">
+                                    Logout
+                                </button>
+
+                            )
+                                :
+                                (
+                                    <Link to="/login">
+                                        <button className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 hover:scale-105 transition">
+                                            Login
+                                        </button>
+                                    </Link>
+                                )
+                        }
+
+                        {/* <Link to="/login">
                             <button className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 hover:scale-105 transition">
                                 Login
                             </button>
-                        </Link>
-                        {/* <button className="px-5 py-3">
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                                alt="LMS Logo"
-                                className="w-10 h-10 rounded-lg object-cover shadow-md hover:scale-110 transition duration-300"
-                            />
-                        </button> */}
+                        </Link> */}
 
                     </div>
 
@@ -193,14 +217,14 @@ export default function Header() {
                     <div className="md:hidden px-4 pb-4 animate-fadeIn">
                         <nav className="flex flex-col space-y-4 text-gray-700 font-medium">
 
-                            {["Home", "Courses", "About", "Contact"].map((item, i) => (
-                                <a
+                            {[{ name: "Home", route: "/" }, { name: "Courses", route: "/courses" }, { name: "About", route: "/about-us" }, { name: "Contact", route: "/contact-us" }, { name: "Login", route: "/login" }].map((item, i) => (
+                                <Link
                                     key={i}
-                                    href="#"
+                                    to={item.route}
                                     className="hover:text-blue-600 transition"
                                 >
-                                    {item}
-                                </a>
+                                    {item.name}
+                                </Link>
                             ))}
 
                             {/* Search */}
@@ -217,9 +241,9 @@ export default function Header() {
                             </div>
 
                             {/* Buttons */}
-                            <button className="w-full py-2 border rounded-full hover:bg-gray-100 transition">
+                            {/* <button className="w-full py-2 border rounded-full hover:bg-gray-100 transition">
                                 Login
-                            </button>
+                            </button> */}
 
                             {/* <button className="w-full py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
                                 <img
@@ -231,7 +255,7 @@ export default function Header() {
                         </nav>
                     </div>
                 )}
-            
+
             </header>
         </>
     )

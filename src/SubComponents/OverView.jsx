@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 export default function OverView() {
     return (
@@ -82,10 +83,11 @@ export default function OverView() {
                         <div class="bg-white p-6 rounded-2xl shadow sticky top-6">
 
                             <h2 class="text-3xl font-bold text-blue-600 mb-4">₹999</h2>
-
+                            <Link to="/enroll">
                             <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 mb-3">
                                 Enroll Now
                             </button>
+                            </Link>
 
                             <button class="w-full border py-3 rounded-lg hover:bg-gray-100">
                                 Add to Wishlist
