@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
+import app from '../firebase/config';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export default function Account() {
 
@@ -33,6 +35,22 @@ export default function Account() {
             toast.error('Something went wrong !!');
         })
     }
+
+    const googleLogin = async () => {
+        const provider = new GoogleAuthProvider();
+        const auth = getAuth(app);
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            const user = result.user;
+            console.log(user);
+            toast.success('Register suceessfully !!');
+            navigate("/login");
+          }).catch((error) => {
+            const errorMessage = error.message;
+            toast.error(errorMessage);
+          });
+      }
+
 
   return (
     <>
@@ -99,6 +117,7 @@ export default function Account() {
 
                                 {/* <!-- Google Signup --> */}
                                 <button type="button"
+                                onClick={googleLogin}
                                     class="w-full flex items-center justify-center gap-2 border py-2 rounded-lg hover:bg-gray-100 transition">
                                     <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" class="w-5 h-5"/>
                                         Sign up with Google

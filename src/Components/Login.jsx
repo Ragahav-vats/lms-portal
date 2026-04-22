@@ -6,11 +6,14 @@ import axios from 'axios';
 import app from '../firebase/config';
 // import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Context } from './ContextAPI';
+import { useContext } from 'react';
 
 export default function Login() {
     const [loginButton, setloginButton] = useState(false);
     let [token, setToken] = useState(Cookies.get("token") || null);
     const navigate = useNavigate();
+    const { setIsLogin } = useContext(Context);
 
     const loginHandler = (event) => {
         event.preventDefault();
@@ -28,6 +31,7 @@ export default function Login() {
                     event.target.reset();
                     toast.success(result.data._message);
                     Cookies.set('token', result.data._token);
+                    setIsLogin(true); 
                     navigate("/");
                 } else {
                     if (result.data._registerstatus){
@@ -37,6 +41,7 @@ export default function Login() {
                 }
             })
             .catch((err) => {
+                console.log(err)
                 setloginButton(false);
                 toast.error('Something went wrong !!');
             })

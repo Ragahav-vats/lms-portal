@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
 import Cookies from 'js-cookie';
+import { Context } from '../ContextAPI';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
+    const {isLogin,setIsLogin} = useContext(Context)
 
     let [token, setToken] = useState(Cookies.get("token") || null);
 
-    console.log("token => ", token)
 
     return (
         <>
@@ -162,27 +163,25 @@ export default function Header() {
                         </Link>
 
                         {
-                            token ? (
-
+                            isLogin
+                            ?
+                            
                                 <button
-                                    onClick={() => {
+                                 onClick={() => {
                                         Cookies.remove("token");
+                                        setIsLogin(false);
                                         toast.success("Logout Successfully");
                                         navigate("/login");
-                                    }}
+                                 }}
                                     className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 hover:scale-105 transition">
                                     Logout
                                 </button>
-
-                            )
-                                :
-                                (
-                                    <Link to="/login">
+                            :
+                            <Link to="/login">
                                         <button className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 hover:scale-105 transition">
                                             Login
                                         </button>
                                     </Link>
-                                )
                         }
 
                         {/* <Link to="/login">
