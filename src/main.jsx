@@ -20,7 +20,7 @@ import Story from "./SubComponents/Story";
 import Team from "./SubComponents/Team";
 import Careers from "./SubComponents/Careers";
 import Account from "./Components/Account";
-import Forgot from "./Components/forgot";
+import Forgot from "./Components/Forgot";
 import Reset from "./Components/Reset";
 import Payment from "./Components/Payment";
 
